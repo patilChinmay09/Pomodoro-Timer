@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+
+    <!--Bootstrap CSS library-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!--Fonts Library for icons-->
+    <link rel="stylesheet"
+    href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery library -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JavaScript library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Latest compiled JavaScript library -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="Styles/main.css" />
+    <link rel="shortcut icon" href="Images/pomodoro.png" type="image/x-icon">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="prj-tl01">
+        <h2 class="prj-tl">
+          <img src="Images/2277966.png" class="pmdr-logo" alt="" />
+          Pomodoro Timer
+        </h2>
+      </div>
+      <div class="row fl-cntnr">
+        <div class="col-lg-8">
+          <div class="pmdr-tmr-cntnr">
+            <div class="pmdr-stts" id="pmdr-stts">
+              <div class="pmdr-stt active" id="pmgr-btn" onclick="pomodorBtn()">
+                <p>Pomodoro</p>
+              </div>
+              <div class="pmdr-stt" id="shrt-btn" onclick="shortBtn()">
+                <p>Short Break</p>
+              </div>
+              <div class="pmdr-stt" id="lng-btn" onclick="longBtn()">
+                <p>Long Break</p>
+              </div>
+            </div>
+
+            <div class="pmdr-tmr">
+              <h1 class="pmdr-cntr" id="time">25:00</h1>
+            </div>
+          </div>
+          <div class="oprtn-btns">
+            <i
+              class="fa-regular fa-circle-play oprtn-cntrl"
+              id="play"
+              onclick="startTimer()"
+            ></i>
+            <i
+              class="fa-regular fa-circle-pause oprtn-cntrl"
+              id="pause"
+              onclick="pauseTimer()"
+            ></i>
+            <i
+              class="fa-regular fa-circle-stop oprtn-cntrl"
+              id="stop"
+              onclick="resetTimer()"
+            ></i>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="tsk-cntnr">
+            <div class="tsk-cntnr-ttl">
+              <h3 class="tsk-hd">Add Task</h3>
+              <i class="fa-solid fa-plus tsk-btns" onclick="openFrame()"></i>
+              <i class="fa-solid fa-arrows-rotate tsk-btns" onclick="displayTask()"></i>
+            </div>
+
+            <div class="tsk-lst-cntnr" id="tsk-lst-cntnr">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="frm-cntn">
+      <div class="cls-btn-cntnr">
+        <i class="fa-regular fa-rectangle-xmark close-btn" onclick="closeFrame()"></i>
+        <iframe src="pomodoroCrt.html" class="frm-01" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div class="task-info-cntnr" id="task-info">
+      <i class='fa fa-info-circle info'></i>
+      <table>
+        <tr>
+          <td>
+            Task Title:
+          </td>
+          <td id="tsk01">
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Total Pomodoros:
+          </td>
+          <td id="tsk02">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Pomodoro Duration:
+          </td>
+          <td id="tsk03">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Short Break Duration:
+          </td>
+          <td id="tsk04">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Long Break Duration:
+          </td>
+          <td id="tsk05">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Interval Between Long Breaks:
+          </td>
+          <td id="tsk06">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Alarm Tone:
+          </td>
+          <td id="tsk07">
+
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <script src="Scripts/timer.js"></script>
+    <script src="Scripts/btnOprtns.js"></script>
+
+    <script src="Scripts/iframeCntrlr.js"></script>
+    <script src="Scripts/notification.js"></script>
+    <script src="Scripts/taskStorage.js"></script>
+
+  </body>
+</html>
