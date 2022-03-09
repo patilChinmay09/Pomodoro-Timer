@@ -86,7 +86,8 @@ function playNote() {
     var task = JSON.parse(localStorage.getItem(task));
     var alarmTone = task["alarm"];
     //var path = "../Audio/" + alarmTone + ".wav";
-    var path = "https://raw.githubusercontent.com/patilChinmay09/Pomodoro-Timer/blob/main/Audio/" + alarmTone + ".mp3";
+    var path = "https://github.com/patilChinmay09/Pomodoro-Timer/blob/main/Audio/" + alarmTone + ".mp3?raw=true";
+    console.log(path);
     var audio = new Audio(path);
     audio.play();
 }
