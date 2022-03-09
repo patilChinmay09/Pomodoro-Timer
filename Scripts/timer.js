@@ -70,6 +70,7 @@ function resetTimer() {
     var pmdr = document.getElementById("pmgr-btn");
     pmdr.click();
     count = 1;
+    pomCount = 1;
     if(tsk.length>0){
         var task = JSON.parse(localStorage.getItem(tsk[0].getAttribute("id")));
         document.getElementById("time").innerHTML = task["PomodoroLength"];
@@ -84,7 +85,8 @@ function playNote() {
     var task = document.getElementsByClassName("active-tsk")[0].getAttribute("id");
     var task = JSON.parse(localStorage.getItem(task));
     var alarmTone = task["alarm"];
-    var path = "../Audio/" + alarmTone + ".wav";
+    //var path = "../Audio/" + alarmTone + ".wav";
+    var path = "https://raw.githubusercontent.com/patilChinmay09/Pomodoro-Timer/blob/main/Audio/" + alarmTone + ".mp3";
     var audio = new Audio(path);
     audio.play();
 }
